@@ -1,6 +1,8 @@
 import express from "express"; // web framework package, provides features to build API easily
 import dotenv from "dotenv"
 
+import {connectDB} from "./lib/db.js"
+
 import authRoutes from "./routes/auth.route.js";
 
 dotenv.config()
@@ -12,6 +14,7 @@ app.use("/api/auth", authRoutes);
 
 
 app.listen(PORT, () => {
-    console.log("Server running on port: "+ PORT)
+    console.log("Server running on port: "+ PORT);
+    connectDB()
 });
 
