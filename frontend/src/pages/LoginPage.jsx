@@ -14,7 +14,11 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    login(formData);
+    const normalizedFormData = {
+      ...formData,
+      email: formData.email.toLowerCase(), // Convert email to lowercase
+    };
+    login(normalizedFormData);
   };
 
   return (

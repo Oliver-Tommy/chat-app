@@ -39,7 +39,13 @@ const SignUpPage = () => {
 
     const success = validateForm();
     
-    if (success===true) signup(formData);
+    if (success === true) {
+      const normalizedFormData = {
+        ...formData,
+        email: formData.email.toLowerCase(), // Convert email to lowercase
+      };
+      signup(normalizedFormData);
+    }
   };
 
   return (
